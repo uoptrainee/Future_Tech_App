@@ -1,0 +1,14 @@
+import '../video_lessons_screen/widgets/userprofile2_item_widget.dart';import 'package:flutter/material.dart';import 'package:trainee_s_future_tech/core/app_export.dart';class VideoLessonsScreen extends StatelessWidget {const VideoLessonsScreen({Key? key}) : super(key: key);
+
+@override Widget build(BuildContext context) { return SafeArea(child: Scaffold(body: Container(width: double.maxFinite, padding: EdgeInsets.symmetric(vertical: 51.v), child: Column(children: [_buildHorizontalScroll(context), SizedBox(height: 48.v), _buildUserProfile(context)])))); } 
+/// Section Widget
+Widget _buildHorizontalScroll(BuildContext context) { return SingleChildScrollView(scrollDirection: Axis.horizontal, child: IntrinsicWidth(child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [SizedBox(height: 64.v, width: double.maxFinite, child: Stack(alignment: Alignment.centerLeft, children: [Align(alignment: Alignment.center, child: Container(height: 64.v, width: double.maxFinite, decoration: BoxDecoration(color: appTheme.blueGray900, borderRadius: BorderRadius.circular(10.h)))), Align(alignment: Alignment.centerLeft, child: Container(width: 394.h, margin: EdgeInsets.fromLTRB(11.h, 12.v, 25.h, 12.v), child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [CustomImageView(imagePath: ImageConstant.imgArrowDown, height: 40.adaptSize, width: 40.adaptSize, onTap: () {onTapImgArrowDown(context);}), Padding(padding: EdgeInsets.only(left: 21.h, top: 4.v, bottom: 5.v), child: Text("Choose Your Subject", style: theme.textTheme.headlineSmall)), Spacer(), CustomImageView(imagePath: ImageConstant.imgMegaphone, height: 35.adaptSize, width: 35.adaptSize, margin: EdgeInsets.only(bottom: 5.v), onTap: () {onTapImgMegaphone(context);})])))])), CustomImageView(imagePath: ImageConstant.imgArrowDown, height: 40.adaptSize, width: 40.adaptSize, margin: EdgeInsets.only(left: 66.h, top: 12.v, bottom: 12.v))]))); } 
+/// Section Widget
+Widget _buildUserProfile(BuildContext context) { return Padding(padding: EdgeInsets.symmetric(horizontal: 16.h), child: ListView.separated(physics: NeverScrollableScrollPhysics(), shrinkWrap: true, separatorBuilder: (context, index) {return SizedBox(height: 14.v);}, itemCount: 5, itemBuilder: (context, index) {return Userprofile2ItemWidget(onTapView: () {onTapView(context);});})); } 
+/// Navigates to the etScreen when the action is triggered.
+onTapView(BuildContext context) { Navigator.pushNamed(context, AppRoutes.etScreen); } 
+/// Navigates to the homeContainerScreen when the action is triggered.
+onTapImgArrowDown(BuildContext context) { Navigator.pushNamed(context, AppRoutes.homeContainerScreen); } 
+/// Navigates to the subscibrdContentScreen when the action is triggered.
+onTapImgMegaphone(BuildContext context) { Navigator.pushNamed(context, AppRoutes.subscibrdContentScreen); } 
+ }
